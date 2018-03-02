@@ -25,7 +25,8 @@ public class PantallaAltaUsuariController {
         // Controlem quin botó s'ha premut
         String botoPremut = ((Control) event.getSource()).getId();
         switch (botoPremut) {
-            case "reg":
+            case "cancel":
+                // En el cas de Cancel·la, tornem a la pantalla de login
                 AnchorPane paneLogin = FXMLLoader.load(getClass().getResource("PantallaLogin.fxml"));
                 paneNew.getChildren().setAll(paneLogin);
                 break;

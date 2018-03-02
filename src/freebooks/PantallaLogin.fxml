@@ -19,5 +19,15 @@
         <Button id="login" fx:id="login" layoutX="262.0" layoutY="243.0" onAction="#handleButtonAction" text="Inicia sessió" />
         <Button id="new" fx:id="new" layoutX="265.0" layoutY="283.0" onAction="#handleButtonAction" text="Nou usuari" />
         <Label fx:id="info" layoutX="266.0" layoutY="332.0" minHeight="16" minWidth="69" textFill="red" />
+      <Label layoutX="133.0" layoutY="124.0" text="Usuari">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="133.0" layoutY="179.0" text="Contrassenya">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>
