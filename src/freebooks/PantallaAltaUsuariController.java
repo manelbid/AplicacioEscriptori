@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pantallalogin;
+package freebooks;
 
 import java.io.IOException;
 import javafx.event.ActionEvent;
@@ -16,18 +16,18 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author Acer
  */
-public class PantallaPrincipalController {
-
+public class PantallaAltaUsuariController {
     @FXML
-    private AnchorPane paneMain;
+    private AnchorPane paneNew;
 
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException {
+        // Controlem quin botó s'ha premut
         String botoPremut = ((Control) event.getSource()).getId();
         switch (botoPremut) {
-            case "logout":
+            case "reg":
                 AnchorPane paneLogin = FXMLLoader.load(getClass().getResource("PantallaLogin.fxml"));
-                paneMain.getChildren().setAll(paneLogin);
+                paneNew.getChildren().setAll(paneLogin);
                 break;
         }
     }

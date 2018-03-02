@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pantallalogin;
+package freebooks;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -15,10 +15,11 @@ import javafx.stage.Stage;
  *
  * @author Acer
  */
-public class PantallaLogin extends Application {
+public class FreeBooksMain extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
+        // Indiquem que en l'execució de l'aplicació es mostrarà la pantalla de login
         Parent root = FXMLLoader.load(getClass().getResource("PantallaLogin.fxml"));
         
         Scene scene = new Scene(root);
