@@ -4,16 +4,17 @@
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <class>persistence.Login</class>
         <properties>
-            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://horton.elephantsql.com:5432/tdobofiz"/>
-            <property name="javax.persistence.jdbc.user" value="tdobofiz"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/postgres"/>
+            <property name="javax.persistence.jdbc.user" value="postgres"/>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-            <property name="javax.persistence.jdbc.password" value="3A1niyoXUe7jjzNPIEqmunL_Y8K5ycTf"/>     
+            <property name="javax.persistence.jdbc.password" value="admin"/>
+                 
         </properties>
     </persistence-unit>
 </persistence>
 
-<!--<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/postgres"/>
-<property name="javax.persistence.jdbc.user" value="postgres"/>
+<!--<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://horton.elephantsql.com:5432/tdobofiz"/>
+<property name="javax.persistence.jdbc.user" value="tdobofiz"/>
 <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-<property name="javax.persistence.jdbc.password" value="admin"/>-->
+<property name="javax.persistence.jdbc.password" value="3A1niyoXUe7jjzNPIEqmunL_Y8K5ycTf"/>-->
       
