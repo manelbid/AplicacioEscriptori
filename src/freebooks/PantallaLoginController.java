@@ -28,6 +28,12 @@ import javafx.scene.layout.AnchorPane;
  */
 public class PantallaLoginController implements Initializable {
 
+    private String codiSessio = "";
+
+    public String getCodiSessio() {
+        return codiSessio;
+    }
+
     @FXML
     private AnchorPane paneLogin;
     @FXML
@@ -47,7 +53,6 @@ public class PantallaLoginController implements Initializable {
                 } else {
                     // Obtenim l'usuari i contrassenya introduïts
                     final String codiRequest = "userLogin-" + user.getText() + "-" + pass.getText();
-                    String codiSessio = "";
 
                     try {
                         // Generem el socket client de connexió al servidor
