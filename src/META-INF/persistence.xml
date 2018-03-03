@@ -11,3 +11,9 @@
     </properties>
   </persistence-unit>
 </persistence>
+
+<!--<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://horton.elephantsql.com:5432/tdobofiz"/>
+      <property name="javax.persistence.jdbc.user" value="tdobofiz"/>
+      <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="3A1niyoXUe7jjzNPIEqmunL_Y8K5ycTf"/>-->
+      
