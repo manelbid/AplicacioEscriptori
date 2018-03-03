@@ -50,6 +50,13 @@ public class Login implements Serializable {
     public Login(String username) {
         this.username = username;
     }
+    
+    public Login(String username, String pass, String type, Boolean isconnected) {
+        this.username = username;
+        this.pass = pass;
+        this.type = type;
+        this.isconnected = isconnected;
+    }
 
     public String getUsername() {
         return username;

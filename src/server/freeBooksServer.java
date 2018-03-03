@@ -15,6 +15,8 @@ import java.io.OutputStreamWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -48,6 +50,10 @@ public class freeBooksServer {
                         if (!resposta.equals("FAIL")){
                             codiSessio = resposta;
                         }
+                    case "nouLogin":
+                        resposta = addNewLogin(request);   
+                        
+                        
                 }
                 escriptor.write(resposta);
                 escriptor.newLine();
@@ -64,12 +70,28 @@ public class freeBooksServer {
     
     private String userLogin(String dades) throws UtilitatPersistenciaException{
         String result = "";
-        GestorPersistencia gp = new GestorPersistencia("PantallaLoginPU");
+        GestorPersistencia gp = new GestorPersistencia("PantallaLoginUP");
         gp.obrir();
         List<Login> llista = gp.findUsersByNameAndPass(dades);
         gp.tancar();
         result = llista.isEmpty()?"FAIL":"OK"+dades.split("-")[1]+new java.util.Date().toString();
         return result;
+    }
+    
+    private String addNewLogin(String dades) throws UtilitatPersistenciaException {        
+        
+        String res = "FAIL";
+        GestorPersistencia gp = new GestorPersistencia("PantallaLoginPU");
+        gp.obrir();
+        if(gp.findByName(dades)){
+            Login log = new Login(dades.split("-")[1],dades.split("-")[2],"Desktop",Boolean.FALSE);
+            gp.inserirLogin(log);
+            gp.gravaCanvis();
+            gp.tancar();            
+            res = "OK";
+        }
+        gp.tancar();
+        return res;
     }
     
     public static void main(String[]args) throws Exception{

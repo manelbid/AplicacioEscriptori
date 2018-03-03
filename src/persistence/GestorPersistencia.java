@@ -84,4 +84,21 @@ public class GestorPersistencia {
         return (List<Login>)q.getResultList(); 
     }
     
+    
+    public void inserirLogin(Login log) throws UtilitatPersistenciaException {
+        try{
+            entityManager.persist(log);
+            entityManager.flush();        
+        }catch(Exception e){
+            tractarExcepcio(e);            
+        }
+    }
+    
+    public Boolean findByName(String dades){
+        Query q = entityManager.createNamedQuery("Login.findByUsername");
+        q.setParameter("username",dades.split("-")[1]);     
+        return q.getResultList().isEmpty();
+    }
+
+    
 }
