@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Control;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -47,11 +48,14 @@ public class PantallaLoginController implements Initializable {
                     // Si les dades no són vàlides, mostra missatge d'error
                     if (codiSessio.equals("FAIL")) {
                         info.setText("Dades incorrectes");
-                    } else {
-                        // Si l'usuari es verifica correctament, mostra la pantalla principal
-                        info.setText("");
+                    } // Si l'usuari es verifica correctament, mostra la pantalla principal
+                    else if (codiSessio.equals("OK")) {
                         AnchorPane paneMain = FXMLLoader.load(getClass().getResource("PantallaPrincipal.fxml"));
                         paneLogin.getChildren().setAll(paneMain);
+                    } // Si el servidor no respon, també avisem
+                    else {
+                        info.setText("");
+                        new Alert(Alert.AlertType.WARNING, "Servidor no respon").showAndWait();
                     }
                 }
                 break;

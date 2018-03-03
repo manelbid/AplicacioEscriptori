@@ -53,7 +53,7 @@ public class PantallaAltaUsuariController {
                     String resposta = Connexio.consulta(nouUser);
                     // Si falla l'alta del nou usuari, mostrem avís d'error
                     if (resposta.equals("FAIL")) {
-                        new Alert(AlertType.ERROR, "Usuari no inserit a la BD").showAndWait();
+                        new Alert(AlertType.ERROR, "L'usuari ja existeix").showAndWait();
                         // Si es crea correctament el nou usuari, mostrem avís de confirmació
                     } else if (resposta.equals("OK")) {
                         new Alert(AlertType.INFORMATION, "Usuari creat amb èxit").showAndWait();
