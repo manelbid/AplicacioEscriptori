@@ -48,12 +48,15 @@ public class PantallaAltaUsuariController {
                 paneNew.getChildren().setAll(paneLogin);
                 break;
             case "reg":
-                if (user.getText().isEmpty() || pass.getText().isEmpty()) { //|| email.getText().isEmpty()) 
+                // En el cas de Registra't, comprovem que no hi ha camps buits
+                if (user.getText().isEmpty() || pass.getText().isEmpty()) {
                     info.setText("Falten dades");
+                    // També comprovem que s'ha escrit la mateixa contraseña 2 cops
                 } else if (!pass.getText().equals(passRepeat.getText())) {
                     info.setText("Contrasenya diferent");
                 } else {
                     info.setText("");
+                    // Creem el nou usuari
                     String nouUser = "nouLogin-" + user.getText() + "-" + pass.getText();
                     String resposta = "";
                     try {
@@ -67,6 +70,7 @@ public class PantallaAltaUsuariController {
                             // Obtenim la resposta del servidor
                             try (BufferedReader lector = new BufferedReader(
                                     new InputStreamReader(socket.getInputStream()))) {
+                                // Obtenim la resposta del servidor
                                 resposta = lector.readLine();
                             }
                         }
@@ -75,12 +79,15 @@ public class PantallaAltaUsuariController {
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
+                    // Si falla l'alta del nou usuari, mostrem avís d'error
                     if (resposta.equals("FAIL")) {
                         new Alert(AlertType.ERROR, "Usuari no inserit a la BD").showAndWait();
+                        // Si es crea correctament el nou usuari, mostrem avís de confirmació
                     } else if (resposta.equals("OK")) {
-                        new Alert(AlertType.INFORMATION, "Usuari inserit amb èxit").showAndWait();
+                        new Alert(AlertType.INFORMATION, "Usuari creat amb èxit").showAndWait();
                         paneLogin = FXMLLoader.load(getClass().getResource("PantallaLogin.fxml"));
                         paneNew.getChildren().setAll(paneLogin);
+                        // Si el servidor no respon, també avisem
                     } else {
                         new Alert(AlertType.WARNING, "Servidor no respon").showAndWait();
                     }
