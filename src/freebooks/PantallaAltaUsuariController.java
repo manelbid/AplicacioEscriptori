@@ -5,12 +5,7 @@
  */
 package freebooks;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.net.Socket;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,7 +18,7 @@ import javafx.scene.layout.AnchorPane;
 
 /**
  *
- * @author Acer
+ * @author Manel MR
  */
 public class PantallaAltaUsuariController {
 
@@ -38,9 +33,6 @@ public class PantallaAltaUsuariController {
     private void handleButtonAction(ActionEvent event) throws IOException {
         // Controlem quin botó s'ha premut
         String botoPremut = ((Control) event.getSource()).getId();
-        //Recuperem el codi de sessió
-        PantallaLoginController plc = new PantallaLoginController();
-        String codiSessio = plc.getCodiSessio();
         switch (botoPremut) {
             case "cancel":
                 // En el cas de Cancel·la, tornem a la pantalla de login
@@ -58,27 +50,7 @@ public class PantallaAltaUsuariController {
                     info.setText("");
                     // Creem el nou usuari
                     String nouUser = "nouLogin-" + user.getText() + "-" + pass.getText();
-                    String resposta = "";
-                    try {
-                        // Generem el socket client de connexió al servidor
-                        Socket socket = new Socket("localhost", 9999);
-                        try (BufferedWriter escriptor = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()))) {
-                            // Enviem les dades d'usuari i contrassenya al servidor
-                            escriptor.write(nouUser);
-                            escriptor.newLine();
-                            escriptor.flush();
-                            // Obtenim la resposta del servidor
-                            try (BufferedReader lector = new BufferedReader(
-                                    new InputStreamReader(socket.getInputStream()))) {
-                                // Obtenim la resposta del servidor
-                                resposta = lector.readLine();
-                            }
-                        }
-                        socket.close();
-
-                    } catch (Exception e) {
-                        System.out.println(e.getMessage());
-                    }
+                    String resposta = Connexio.consulta(nouUser);
                     // Si falla l'alta del nou usuari, mostrem avís d'error
                     if (resposta.equals("FAIL")) {
                         new Alert(AlertType.ERROR, "Usuari no inserit a la BD").showAndWait();

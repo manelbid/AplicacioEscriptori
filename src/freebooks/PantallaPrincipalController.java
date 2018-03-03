@@ -14,7 +14,7 @@ import javafx.scene.layout.AnchorPane;
 
 /**
  *
- * @author Acer
+ * @author Manel MR
  */
 public class PantallaPrincipalController {
 

@@ -5,12 +5,7 @@
  */
 package freebooks;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.net.Socket;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -24,15 +19,9 @@ import javafx.scene.layout.AnchorPane;
 
 /**
  *
- * @author Acer
+ * @author Manel MR
  */
 public class PantallaLoginController implements Initializable {
-
-    private String codiSessio = "";
-
-    public String getCodiSessio() {
-        return codiSessio;
-    }
 
     @FXML
     private AnchorPane paneLogin;
@@ -53,26 +42,8 @@ public class PantallaLoginController implements Initializable {
                 } else {
                     // Obtenim l'usuari i contrassenya introduïts
                     final String codiRequest = "userLogin-" + user.getText() + "-" + pass.getText();
-
-                    try {
-                        // Generem el socket client de connexió al servidor
-                        Socket socket = new Socket("localhost", 9999);
-                        try (BufferedWriter escriptor = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()))) {
-                            // Enviem les dades d'usuari i contrassenya al servidor
-                            escriptor.write(codiRequest);
-                            escriptor.newLine();
-                            escriptor.flush();
-                            // Obtenim la resposta del servidor
-                            try (BufferedReader lector = new BufferedReader(
-                                    new InputStreamReader(socket.getInputStream()))) {
-                                codiSessio = lector.readLine();
-                            }
-
-                        }
-                        socket.close();
-                    } catch (Exception e) {
-                        System.out.println(e.getMessage());
-                    }
+                    // Executem la consulta
+                    String codiSessio = Connexio.consulta(codiRequest);
                     // Si les dades no són vàlides, mostra missatge d'error
                     if (codiSessio.equals("FAIL")) {
                         info.setText("Dades incorrectes");

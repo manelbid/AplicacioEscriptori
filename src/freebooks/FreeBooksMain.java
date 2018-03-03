@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Acer
+ * @author Manel MR
  */
 public class FreeBooksMain extends Application {
     
