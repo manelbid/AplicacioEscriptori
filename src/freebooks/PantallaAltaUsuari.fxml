@@ -15,7 +15,7 @@
             </font>
         </Label>
         <TextField fx:id="user" layoutX="226.0" layoutY="110.0" promptText="Nom d'usuari" />
-        <PasswordField fx:id="pass" layoutX="226.0" layoutY="150.0" promptText="Contrassenya" />
+        <PasswordField fx:id="pass" layoutX="226.0" layoutY="150.0" promptText="Contrasenya" />
         <Button id="reg" layoutX="262.0" layoutY="243.0" onAction="#handleButtonAction" text="Registra't" />
         <Button id="cancel" layoutX="264.0" layoutY="283.0" onAction="#handleButtonAction" text="Cancel·la" />
         <Label fx:id="info" layoutX="266.0" layoutY="332.0" minHeight="16" minWidth="69" textFill="red" />
@@ -25,7 +25,7 @@
                 <Font name="System Bold" size="12.0" />
             </font>
         </Label>
-        <Label layoutX="143.0" layoutY="154.0" text="Contrassenya">
+        <Label layoutX="143.0" layoutY="154.0" text="Contrasenya">
             <font>
                 <Font name="System Bold" size="12.0" />
             </font>
