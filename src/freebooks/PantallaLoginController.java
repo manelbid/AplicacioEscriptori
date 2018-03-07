@@ -64,6 +64,9 @@ public class PantallaLoginController implements Initializable {
                 AnchorPane paneNew = FXMLLoader.load(getClass().getResource("PantallaAltaUsuari.fxml"));
                 paneLogin.getChildren().setAll(paneNew);
                 break;
+            case "exit":
+                System.exit(0);
+                break;
         }
     }
 

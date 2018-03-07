@@ -11,50 +11,55 @@
 
 <AnchorPane fx:id="paneLogin" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="freebooks.PantallaLoginController">
     <children>
-      <Label id="title" layoutX="214.0" layoutY="37.0" text="FreeBooks">
-         <font>
-            <Font name="Calibri Bold" size="40.0" />
-         </font>
-      </Label>
-      <TextField fx:id="user" layoutX="226.0" layoutY="120.0" promptText="Nom d'usuari">
-         <font>
-            <Font name="Calibri" size="13.0" />
-         </font></TextField>
-      <PasswordField fx:id="pass" layoutX="226.0" layoutY="175.0" promptText="Contrasenya">
-         <font>
-            <Font name="Calibri" size="13.0" />
-         </font></PasswordField>
+        <Label id="title" layoutX="214.0" layoutY="37.0" text="FreeBooks">
+            <font>
+                <Font name="Calibri Bold" size="40.0" />
+            </font>
+        </Label>
+        <TextField fx:id="user" layoutX="226.0" layoutY="120.0" promptText="Nom d'usuari">
+            <font>
+                <Font name="Calibri" size="13.0" />
+            </font>
+        </TextField>
+        <PasswordField fx:id="pass" layoutX="226.0" layoutY="175.0" promptText="Contrasenya">
+            <font>
+                <Font name="Calibri" size="13.0" />
+            </font>
+        </PasswordField>
         <Button id="login" fx:id="login" layoutX="260.0" layoutY="242.0" onAction="#handleButtonAction" text="Inicia sessió">
-         <font>
-            <Font name="Calibri Bold" size="14.0" />
-         </font></Button>
+            <font>
+                <Font name="Calibri Bold" size="14.0" />
+            </font>
+        </Button>
         <Button id="new" fx:id="new" layoutX="267.0" layoutY="283.0" onAction="#handleButtonAction" text="Nou usuari">
-         <font>
-            <Font name="Calibri" size="13.0" />
-         </font></Button>
+            <font>
+                <Font name="Calibri" size="13.0" />
+            </font>
+        </Button>
         <Label fx:id="info" layoutX="269.0" layoutY="332.0" minHeight="16" minWidth="69" textAlignment="CENTER" textFill="red">
-         <font>
-            <Font name="Calibri" size="14.0" />
-         </font></Label>
-      <Label layoutX="133.0" layoutY="124.0" text="Usuari">
-         <font>
-            <Font name="Calibri Bold" size="15.0" />
-         </font>
-      </Label>
-      <Label layoutX="133.0" layoutY="179.0" text="Contrasenya">
-         <font>
-            <Font name="Calibri Bold" size="15.0" />
-         </font>
-      </Label>
-      <Button layoutX="510.0" layoutY="340.0" mnemonicParsing="false" text="Sortir" textFill="#cd1414">
-         <font>
-            <Font name="Calibri Bold" size="14.0" />
-         </font>
-      </Button>
-      <ImageView fitHeight="92.0" fitWidth="98.0" layoutX="500.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/logobooks.png" />
-         </image>
-      </ImageView>
+            <font>
+                <Font name="Calibri" size="14.0" />
+            </font>
+        </Label>
+        <Label layoutX="133.0" layoutY="124.0" text="Usuari">
+            <font>
+                <Font name="Calibri Bold" size="15.0" />
+            </font>
+        </Label>
+        <Label layoutX="133.0" layoutY="179.0" text="Contrasenya">
+            <font>
+                <Font name="Calibri Bold" size="15.0" />
+            </font>
+        </Label>
+        <Button id="exit" fx:id="exit" layoutX="510.0" layoutY="340.0" onAction="#handleButtonAction" text="Sortir" textFill="#cd1414">
+            <font>
+                <Font name="Calibri Bold" size="14.0" />
+            </font>
+        </Button>
+        <ImageView fitHeight="92.0" fitWidth="98.0" layoutX="500.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../images/logobooks.png" />
+            </image>
+        </ImageView>
     </children>
 </AnchorPane>
