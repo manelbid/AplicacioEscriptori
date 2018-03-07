@@ -28,7 +28,10 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Login.findByPass", query = "SELECT l FROM Login l WHERE l.pass = :pass")
     , @NamedQuery(name = "Login.findByType", query = "SELECT l FROM Login l WHERE l.type = :type")
     , @NamedQuery(name = "Login.findByIsconnected", query = "SELECT l FROM Login l WHERE l.isconnected = :isconnected")
+    , @NamedQuery(name = "Login.findByEmail", query = "SELECT l FROM Login l WHERE l.email = :email")
     , @NamedQuery(name = "Login.findByUsernameAndPass", query = "SELECT l FROM Login l WHERE l.username = :username AND l.pass = :pass")
+    , @NamedQuery(name = "Login.findByUsernameAndType", query = "SELECT l FROM Login l WHERE l.username = :username AND l.type = :type")
+    , @NamedQuery(name = "Login.findByUsernameAndPassAndType", query = "SELECT l FROM Login l WHERE l.username = :username AND l.pass=:pass AND l.type = :type")          
 })
 public class Login implements Serializable {
 
@@ -43,6 +46,18 @@ public class Login implements Serializable {
     private String type;
     @Column(name = "isconnected")
     private Boolean isconnected;
+    @Column(name = "email")
+    private String email;
+    @Column(name = "lastsessioncode")
+    private String lastsessioncode;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public Login() {
     }
@@ -50,12 +65,14 @@ public class Login implements Serializable {
     public Login(String username) {
         this.username = username;
     }
-
-    public Login(String username, String pass, String type, Boolean isconnected) {
+    
+    public Login(String username, String pass, String type, Boolean isconnected, String email, String lastsessioncode) {
         this.username = username;
         this.pass = pass;
         this.type = type;
         this.isconnected = isconnected;
+        this.email = email;
+        this.lastsessioncode = lastsessioncode;
     }
 
     public String getUsername() {
@@ -114,5 +131,5 @@ public class Login implements Serializable {
     public String toString() {
         return "persistence.Login[ username=" + username + " ]";
     }
-
+    
 }
