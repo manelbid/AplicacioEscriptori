@@ -42,20 +42,20 @@ public class PantallaLoginController implements Initializable {
                     info.setText("Falten dades");
                 } else {
                     // Obtenim l'usuari i contrassenya introduïts
-                    final String codiRequest = "userLogin-" + user.getText() + "-" + pass.getText();
+                    String codiRequest = "userLogin-" + user.getText() + "-" + pass.getText() + "-Desktop";
                     // Executem la consulta
                     String codiSessio = Connexio.consulta(codiRequest);
                     // Si les dades no són vàlides, mostra missatge d'error
                     if (codiSessio.equals("FAIL")) {
                         info.setText("Dades incorrectes");
-                    } // Si l'usuari es verifica correctament, mostra la pantalla principal
-                    else if (codiSessio.equals("OK")) {
-                        AnchorPane paneMain = FXMLLoader.load(getClass().getResource("PantallaPrincipal.fxml"));
-                        paneLogin.getChildren().setAll(paneMain);
                     } // Si el servidor no respon, també avisem
-                    else {
+                    else if (codiSessio.isEmpty()) {
                         info.setText("");
                         new Alert(Alert.AlertType.WARNING, "Servidor no respon").showAndWait();
+                    } // Si l'usuari es verifica correctament, mostra la pantalla principal
+                    else {
+                        AnchorPane paneMain = FXMLLoader.load(getClass().getResource("PantallaPrincipal.fxml"));
+                        paneLogin.getChildren().setAll(paneMain);
                     }
                 }
                 break;

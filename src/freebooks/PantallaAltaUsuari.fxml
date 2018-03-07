@@ -14,9 +14,9 @@
 
 <AnchorPane fx:id="paneNew" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="freebooks.PantallaAltaUsuariController">
     <children>
-        <Label id="title" layoutX="252.0" layoutY="40.0" text="FreeBooks">
+        <Label id="title" layoutX="214.0" layoutY="37.0" text="FreeBooks" textAlignment="CENTER">
             <font>
-                <Font name="System Bold" size="20.0" />
+                <Font name="Calibri Bold" size="40.0" />
             </font>
         </Label>
       <GridPane layoutX="26.0" layoutY="79.0">
@@ -38,10 +38,22 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-              <TextField fx:id="user" promptText="Nom d'usuari" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-              <PasswordField fx:id="pass" promptText="Contrasenya" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <PasswordField fx:id="passRepeat" layoutX="210.0" layoutY="73.0" prefHeight="25.0" prefWidth="137.0" promptText="Contrasenya" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-              <TextField promptText="Email" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+              <TextField fx:id="user" promptText="Nom d'usuari" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Calibri" size="13.0" />
+               </font></TextField>
+              <PasswordField fx:id="pass" promptText="Contrasenya" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Calibri" size="13.0" />
+               </font></PasswordField>
+            <PasswordField fx:id="passRepeat" layoutX="210.0" layoutY="73.0" prefHeight="25.0" prefWidth="137.0" promptText="Contrasenya" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Calibri" size="13.0" />
+               </font></PasswordField>
+              <TextField fx:id="email" promptText="Email" GridPane.columnIndex="2" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Calibri" size="13.0" />
+               </font></TextField>
               <Label text="Usuari" GridPane.columnIndex="1" GridPane.rowIndex="1">
                   <font>
                       <Font name="Calibri Bold" size="15.0" />
@@ -62,9 +74,15 @@
                       <Font name="Calibri Bold" size="15.0" />
                   </font>
               </Label>
-              <Button id="reg" onAction="#handleButtonAction" text="Registra't" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
-              <Button id="cancel" onAction="#handleButtonAction" text="Cancel·la" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
-              <Label fx:id="info" minHeight="16" minWidth="69" textFill="red" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
+              <Button id="reg" onAction="#handleButtonAction" text="Registra't" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+               <font>
+                  <Font name="Calibri Bold" size="14.0" />
+               </font></Button>
+              <Label fx:id="info" minHeight="16" minWidth="69" textFill="red" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="8">
+               <font>
+                  <Font name="Calibri" size="14.0" />
+               </font>
+            </Label>
          </children>
       </GridPane>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="408.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
@@ -72,5 +90,10 @@
             <Image url="@../images/adduser.png" />
          </image>
       </ImageView>
+        <Button id="cancel" layoutX="490.0" layoutY="340.0" onAction="#handleButtonAction" text="Cancel·la" textFill="#cd1414">
+         <font>
+            <Font name="Calibri Bold" size="14.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>

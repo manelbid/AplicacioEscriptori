@@ -41,7 +41,7 @@ public class PantallaAltaUsuariController {
                 break;
             case "reg":
                 // En el cas de Registra't, comprovem que no hi ha camps buits
-                if (user.getText().isEmpty() || pass.getText().isEmpty()) {
+                if (user.getText().isEmpty() || pass.getText().isEmpty() || email.getText().isEmpty()) {
                     info.setText("Falten dades");
                     // També comprovem que s'ha escrit la mateixa contraseña 2 cops
                 } else if (!pass.getText().equals(passRepeat.getText())) {
@@ -49,7 +49,7 @@ public class PantallaAltaUsuariController {
                 } else {
                     info.setText("");
                     // Creem el nou usuari
-                    String nouUser = "nouLogin-" + user.getText() + "-" + pass.getText();
+                    String nouUser = "nouLogin-" + user.getText() + "-" + pass.getText() + "-Desktop-" + email.getText();
                     String resposta = Connexio.consulta(nouUser);
                     // Si falla l'alta del nou usuari, mostrem avís d'error
                     if (resposta.equals("FAIL")) {
